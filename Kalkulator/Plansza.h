@@ -47,7 +47,8 @@ namespace Kalkulator {
 	private: System::Windows::Forms::ToolStripMenuItem^ finansowyToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ graToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ pomocToolStripMenuItem;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtOkno;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
@@ -77,12 +78,14 @@ namespace Kalkulator {
 	private: System::Windows::Forms::Button^ button27;
 	private: System::Windows::Forms::Button^ button28;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::ImageList^ imageList1;
+	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -91,6 +94,7 @@ namespace Kalkulator {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Plansza::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->plikToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -102,7 +106,7 @@ namespace Kalkulator {
 			this->finansowyToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->graToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->pomocToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtOkno = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -132,6 +136,7 @@ namespace Kalkulator {
 			this->button27 = (gcnew System::Windows::Forms::Button());
 			this->button28 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -161,21 +166,21 @@ namespace Kalkulator {
 			// przypnijToolStripMenuItem
 			// 
 			this->przypnijToolStripMenuItem->Name = L"przypnijToolStripMenuItem";
-			this->przypnijToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->przypnijToolStripMenuItem->Size = System::Drawing::Size(118, 22);
 			this->przypnijToolStripMenuItem->Text = L"Przypnij";
 			this->przypnijToolStripMenuItem->Click += gcnew System::EventHandler(this, &Plansza::przypnijToolStripMenuItem_Click);
 			// 
 			// okienkoToolStripMenuItem
 			// 
 			this->okienkoToolStripMenuItem->Name = L"okienkoToolStripMenuItem";
-			this->okienkoToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->okienkoToolStripMenuItem->Size = System::Drawing::Size(118, 22);
 			this->okienkoToolStripMenuItem->Text = L"Okienko";
 			this->okienkoToolStripMenuItem->Click += gcnew System::EventHandler(this, &Plansza::okienkoToolStripMenuItem_Click);
 			// 
 			// zamknijToolStripMenuItem
 			// 
 			this->zamknijToolStripMenuItem->Name = L"zamknijToolStripMenuItem";
-			this->zamknijToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->zamknijToolStripMenuItem->Size = System::Drawing::Size(118, 22);
 			this->zamknijToolStripMenuItem->Text = L"Zamknij";
 			this->zamknijToolStripMenuItem->Click += gcnew System::EventHandler(this, &Plansza::zamknijToolStripMenuItem_Click);
 			// 
@@ -217,19 +222,19 @@ namespace Kalkulator {
 			this->pomocToolStripMenuItem->Text = L"Pomoc";
 			this->pomocToolStripMenuItem->Click += gcnew System::EventHandler(this, &Plansza::pomocToolStripMenuItem_Click);
 			// 
-			// textBox1
+			// txtOkno
 			// 
-			this->textBox1->BackColor = System::Drawing::Color::Gray;
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Calibri Light", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->txtOkno->BackColor = System::Drawing::Color::Gray;
+			this->txtOkno->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtOkno->Font = (gcnew System::Drawing::Font(L"Calibri Light", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox1->ForeColor = System::Drawing::SystemColors::Window;
-			this->textBox1->Location = System::Drawing::Point(14, 38);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(270, 59);
-			this->textBox1->TabIndex = 1;
-			this->textBox1->Text = L"0";
-			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->txtOkno->ForeColor = System::Drawing::SystemColors::Window;
+			this->txtOkno->Location = System::Drawing::Point(14, 38);
+			this->txtOkno->Name = L"txtOkno";
+			this->txtOkno->Size = System::Drawing::Size(270, 59);
+			this->txtOkno->TabIndex = 1;
+			this->txtOkno->Text = L"0";
+			this->txtOkno->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
 			// button1
 			// 
@@ -244,6 +249,7 @@ namespace Kalkulator {
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"7";
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &Plansza::button1_Click);
 			// 
 			// button2
 			// 
@@ -258,6 +264,7 @@ namespace Kalkulator {
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"8";
 			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &Plansza::button2_Click);
 			// 
 			// button3
 			// 
@@ -272,6 +279,7 @@ namespace Kalkulator {
 			this->button3->TabIndex = 4;
 			this->button3->Text = L"9";
 			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &Plansza::button3_Click);
 			// 
 			// button4
 			// 
@@ -286,6 +294,7 @@ namespace Kalkulator {
 			this->button4->TabIndex = 7;
 			this->button4->Text = L"6";
 			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &Plansza::button4_Click);
 			// 
 			// button5
 			// 
@@ -300,6 +309,7 @@ namespace Kalkulator {
 			this->button5->TabIndex = 6;
 			this->button5->Text = L"5";
 			this->button5->UseVisualStyleBackColor = false;
+			this->button5->Click += gcnew System::EventHandler(this, &Plansza::button5_Click);
 			// 
 			// button6
 			// 
@@ -314,6 +324,7 @@ namespace Kalkulator {
 			this->button6->TabIndex = 5;
 			this->button6->Text = L"4";
 			this->button6->UseVisualStyleBackColor = false;
+			this->button6->Click += gcnew System::EventHandler(this, &Plansza::button6_Click);
 			// 
 			// button7
 			// 
@@ -328,6 +339,7 @@ namespace Kalkulator {
 			this->button7->TabIndex = 10;
 			this->button7->Text = L"3";
 			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &Plansza::button7_Click);
 			// 
 			// button8
 			// 
@@ -342,6 +354,7 @@ namespace Kalkulator {
 			this->button8->TabIndex = 9;
 			this->button8->Text = L"2";
 			this->button8->UseVisualStyleBackColor = false;
+			this->button8->Click += gcnew System::EventHandler(this, &Plansza::button8_Click);
 			// 
 			// button9
 			// 
@@ -356,6 +369,7 @@ namespace Kalkulator {
 			this->button9->TabIndex = 8;
 			this->button9->Text = L"1";
 			this->button9->UseVisualStyleBackColor = false;
+			this->button9->Click += gcnew System::EventHandler(this, &Plansza::button9_Click);
 			// 
 			// button10
 			// 
@@ -370,6 +384,7 @@ namespace Kalkulator {
 			this->button10->TabIndex = 11;
 			this->button10->Text = L"0";
 			this->button10->UseVisualStyleBackColor = false;
+			this->button10->Click += gcnew System::EventHandler(this, &Plansza::button10_Click);
 			// 
 			// button11
 			// 
@@ -384,6 +399,7 @@ namespace Kalkulator {
 			this->button11->TabIndex = 12;
 			this->button11->Text = L",";
 			this->button11->UseVisualStyleBackColor = false;
+			this->button11->Click += gcnew System::EventHandler(this, &Plansza::button11_Click);
 			// 
 			// button12
 			// 
@@ -398,6 +414,7 @@ namespace Kalkulator {
 			this->button12->TabIndex = 13;
 			this->button12->Text = L"+";
 			this->button12->UseVisualStyleBackColor = false;
+			this->button12->Click += gcnew System::EventHandler(this, &Plansza::button12_Click);
 			// 
 			// button13
 			// 
@@ -412,6 +429,7 @@ namespace Kalkulator {
 			this->button13->TabIndex = 15;
 			this->button13->Text = L"X";
 			this->button13->UseVisualStyleBackColor = false;
+			this->button13->Click += gcnew System::EventHandler(this, &Plansza::button13_Click);
 			// 
 			// button14
 			// 
@@ -426,6 +444,7 @@ namespace Kalkulator {
 			this->button14->TabIndex = 14;
 			this->button14->Text = L"-";
 			this->button14->UseVisualStyleBackColor = false;
+			this->button14->Click += gcnew System::EventHandler(this, &Plansza::button14_Click);
 			// 
 			// button15
 			// 
@@ -468,6 +487,7 @@ namespace Kalkulator {
 			this->button17->TabIndex = 18;
 			this->button17->Text = L"/";
 			this->button17->UseVisualStyleBackColor = false;
+			this->button17->Click += gcnew System::EventHandler(this, &Plansza::button17_Click);
 			// 
 			// button18
 			// 
@@ -633,6 +653,14 @@ namespace Kalkulator {
 			this->pictureBox1->TabIndex = 30;
 			this->pictureBox1->TabStop = false;
 			// 
+			// imageList1
+			// 
+			this->imageList1->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList1.ImageStream")));
+			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
+			this->imageList1->Images->SetKeyName(0, L"pytajnik.png");
+			this->imageList1->Images->SetKeyName(1, L"zle.png");
+			this->imageList1->Images->SetKeyName(2, L"dobrze.png");
+			// 
 			// Plansza
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -668,7 +696,7 @@ namespace Kalkulator {
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtOkno);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MainMenuStrip = this->menuStrip1;
@@ -683,7 +711,21 @@ namespace Kalkulator {
 			this->PerformLayout();
 
 		}
+
+
+		double pierwsza, druga, wynik;
+		char operacja;
+		bool status = false;
 #pragma endregion
+		private: Void Wypisz(String^ liczba) {
+			if (txtOkno->Text == "0"|| status) {
+				txtOkno->Text = liczba;
+			}
+			else {
+				this->txtOkno->Text += liczba;
+			}
+			status = false;
+		}
 	private: System::Void Plansza_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void pomocToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -717,6 +759,70 @@ private: System::Void zamknijToolStripMenuItem_Click(System::Object^ sender, Sys
 	Application::Exit();
 
 	}
+}
+private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("1");
+}
+private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("2");
+}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("3");
+
+}
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("4");
+
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("5");
+
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("6");
+
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("7");
+
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("8");
+
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("9");
+
+}
+private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz("0");
+
+}
+private: System::Void button11_Click(System::Object^ sender, System::EventArgs^ e) {
+	Wypisz(",");
+
+}
+private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	operacja = '+';
+	//this->txtOkno->Text = "0";
+	status = true;
+
+}
+private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	operacja = '*';
+	status = true;
+}
+private: System::Void button14_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	operacja = '-';
+	status = true;
+}
+private: System::Void button17_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	operacja = '/';
+	status = true;
 }
 };
 }
