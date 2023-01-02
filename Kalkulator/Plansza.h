@@ -473,6 +473,7 @@ namespace Kalkulator {
 			this->button16->TabIndex = 16;
 			this->button16->Text = L"C";
 			this->button16->UseVisualStyleBackColor = false;
+			this->button16->Click += gcnew System::EventHandler(this, &Plansza::button16_Click);
 			// 
 			// button17
 			// 
@@ -544,6 +545,7 @@ namespace Kalkulator {
 			this->button21->TabIndex = 19;
 			this->button21->Text = L"=";
 			this->button21->UseVisualStyleBackColor = false;
+			this->button21->Click += gcnew System::EventHandler(this, &Plansza::button21_Click);
 			// 
 			// button22
 			// 
@@ -716,6 +718,7 @@ namespace Kalkulator {
 		double pierwsza, druga, wynik;
 		char operacja;
 		bool status = false;
+
 #pragma endregion
 		private: Void Wypisz(String^ liczba) {
 			if (txtOkno->Text == "0"|| status) {
@@ -805,7 +808,6 @@ private: System::Void button11_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
 	pierwsza = Convert::ToDouble(txtOkno->Text);
 	operacja = '+';
-	//this->txtOkno->Text = "0";
 	status = true;
 
 }
@@ -823,6 +825,43 @@ private: System::Void button17_Click(System::Object^ sender, System::EventArgs^ 
 	pierwsza = Convert::ToDouble(txtOkno->Text);
 	operacja = '/';
 	status = true;
+}
+private: System::Void button21_Click(System::Object^ sender, System::EventArgs^ e) {
+	druga = Convert::ToDouble(txtOkno->Text);
+
+
+
+	switch (operacja) {
+	case '+':
+		wynik = pierwsza + druga;		///dodawanie
+		break;
+	case '-':
+		wynik = pierwsza - druga;		///odejmowanie
+			break;
+	case '*':
+		wynik = pierwsza * druga;		///mnozenie
+
+		break;
+	case '/':
+		if (druga == 0) {
+			MessageBox::Show("dzielenie przez 0!");
+		}
+		else {
+			wynik = pierwsza / druga;	///dzielenie
+		}
+		break;
+	default:
+		break;
+	}
+
+
+	this->txtOkno->Text = Convert::ToString(wynik);
+}
+private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ e) {
+	txtOkno->Text = "0";
+	pierwsza = 0;
+	druga = 0; 
+	status = false;
 }
 };
 }
