@@ -149,7 +149,7 @@ namespace Kalkulator {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(434, 24);
+			this->menuStrip1->Size = System::Drawing::Size(294, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -229,7 +229,7 @@ namespace Kalkulator {
 			this->txtOkno->Font = (gcnew System::Drawing::Font(L"Calibri Light", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->txtOkno->ForeColor = System::Drawing::SystemColors::Window;
-			this->txtOkno->Location = System::Drawing::Point(14, 38);
+			this->txtOkno->Location = System::Drawing::Point(10, 45);
 			this->txtOkno->Name = L"txtOkno";
 			this->txtOkno->Size = System::Drawing::Size(270, 59);
 			this->txtOkno->TabIndex = 1;
@@ -459,6 +459,7 @@ namespace Kalkulator {
 			this->button15->TabIndex = 17;
 			this->button15->Text = L"CE";
 			this->button15->UseVisualStyleBackColor = false;
+			this->button15->Click += gcnew System::EventHandler(this, &Plansza::button15_Click);
 			// 
 			// button16
 			// 
@@ -503,6 +504,7 @@ namespace Kalkulator {
 			this->button18->TabIndex = 22;
 			this->button18->Text = L"√";
 			this->button18->UseVisualStyleBackColor = false;
+			this->button18->Click += gcnew System::EventHandler(this, &Plansza::button18_Click);
 			// 
 			// button19
 			// 
@@ -517,6 +519,7 @@ namespace Kalkulator {
 			this->button19->TabIndex = 21;
 			this->button19->Text = L"%";
 			this->button19->UseVisualStyleBackColor = false;
+			this->button19->Click += gcnew System::EventHandler(this, &Plansza::button19_Click);
 			// 
 			// button20
 			// 
@@ -531,6 +534,7 @@ namespace Kalkulator {
 			this->button20->TabIndex = 20;
 			this->button20->Text = L"a²";
 			this->button20->UseVisualStyleBackColor = false;
+			this->button20->Click += gcnew System::EventHandler(this, &Plansza::button20_Click);
 			// 
 			// button21
 			// 
@@ -560,6 +564,7 @@ namespace Kalkulator {
 			this->button22->TabIndex = 23;
 			this->button22->Text = L"Narzut";
 			this->button22->UseVisualStyleBackColor = false;
+			this->button22->Click += gcnew System::EventHandler(this, &Plansza::button22_Click);
 			// 
 			// button23
 			// 
@@ -574,6 +579,7 @@ namespace Kalkulator {
 			this->button23->TabIndex = 24;
 			this->button23->Text = L"Marża";
 			this->button23->UseVisualStyleBackColor = false;
+			this->button23->Click += gcnew System::EventHandler(this, &Plansza::button23_Click);
 			// 
 			// button24
 			// 
@@ -588,6 +594,7 @@ namespace Kalkulator {
 			this->button24->TabIndex = 25;
 			this->button24->Text = L"Brutto←Netto";
 			this->button24->UseVisualStyleBackColor = false;
+			this->button24->Click += gcnew System::EventHandler(this, &Plansza::button24_Click);
 			// 
 			// button25
 			// 
@@ -602,6 +609,7 @@ namespace Kalkulator {
 			this->button25->TabIndex = 26;
 			this->button25->Text = L"Netto→Brutto";
 			this->button25->UseVisualStyleBackColor = false;
+			this->button25->Click += gcnew System::EventHandler(this, &Plansza::button25_Click);
 			// 
 			// button26
 			// 
@@ -616,6 +624,7 @@ namespace Kalkulator {
 			this->button26->TabIndex = 29;
 			this->button26->Text = L"Dodawanie";
 			this->button26->UseVisualStyleBackColor = false;
+			this->button26->Click += gcnew System::EventHandler(this, &Plansza::button26_Click);
 			// 
 			// button27
 			// 
@@ -630,6 +639,7 @@ namespace Kalkulator {
 			this->button27->TabIndex = 28;
 			this->button27->Text = L"Odejmowanie";
 			this->button27->UseVisualStyleBackColor = false;
+			this->button27->Click += gcnew System::EventHandler(this, &Plansza::button27_Click);
 			// 
 			// button28
 			// 
@@ -644,6 +654,7 @@ namespace Kalkulator {
 			this->button28->TabIndex = 27;
 			this->button28->Text = L"Mnożenie";
 			this->button28->UseVisualStyleBackColor = false;
+			this->button28->Click += gcnew System::EventHandler(this, &Plansza::button28_Click);
 			// 
 			// pictureBox1
 			// 
@@ -668,7 +679,7 @@ namespace Kalkulator {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->ClientSize = System::Drawing::Size(434, 611);
+			this->ClientSize = System::Drawing::Size(294, 396);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button26);
 			this->Controls->Add(this->button27);
@@ -713,9 +724,7 @@ namespace Kalkulator {
 			this->PerformLayout();
 
 		}
-
-
-		double pierwsza, druga, wynik;
+		double pierwsza, druga, wynik, testuj;
 		char operacja;
 		bool status = false;
 
@@ -736,31 +745,41 @@ namespace Kalkulator {
 		Onas->Show();
 	}
 private: System::Void standardowyToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	Plansza::Width = 300;
-	Plansza::Height = 425;
-
+	Plansza::Width = 310;
+	Plansza::Height = 435;
+	Klawisze(true);
 }
 private: System::Void finansowyToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	Plansza::Width = 460;
-	Plansza::Height = 425;
-
+	Plansza::Height = 435;
+	Klawisze(true);
 }
 private: System::Void graToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	Plansza::Width = 300;
+	Plansza::Width = 310;
 	Plansza::Height = 650;
+	this->txtOkno->Text = "Zagramy ?";
+	Klawisze(false);
+
 }
+private: void Klawisze(bool Widok) {
+	button12->Visible = Widok;
+	button13->Visible = Widok;
+	button14->Visible = Widok;
+	button17->Visible = Widok;
+	button18->Visible = Widok;
+	button19->Visible = Widok;
+	button20->Visible = Widok;
+};
 private: System::Void przypnijToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	Plansza::FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 	TopMost = true;
 }
 private: System::Void okienkoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	Plansza::FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
-
 }
 private: System::Void zamknijToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (MessageBox::Show("Czy wylaczyc kalkulator?", "Kalkulator", MessageBoxButtons::YesNo,MessageBoxIcon::Question)==System::Windows::Forms::DialogResult::Yes) {
 	Application::Exit();
-
 	}
 }
 private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -771,35 +790,27 @@ private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
 	Wypisz("3");
-
 }
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	Wypisz("4");
-
 }
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	Wypisz("5");
-
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	Wypisz("6");
-
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Wypisz("7");
-
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	Wypisz("8");
-
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	Wypisz("9");
-
 }
 private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
 	Wypisz("0");
-
 }
 private: System::Void button11_Click(System::Object^ sender, System::EventArgs^ e) {
 	Wypisz(",");
@@ -809,7 +820,6 @@ private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ 
 	pierwsza = Convert::ToDouble(txtOkno->Text);
 	operacja = '+';
 	status = true;
-
 }
 private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
 	pierwsza = Convert::ToDouble(txtOkno->Text);
@@ -828,9 +838,6 @@ private: System::Void button17_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void button21_Click(System::Object^ sender, System::EventArgs^ e) {
 	druga = Convert::ToDouble(txtOkno->Text);
-
-
-
 	switch (operacja) {
 	case '+':
 		wynik = pierwsza + druga;		///dodawanie
@@ -850,18 +857,118 @@ private: System::Void button21_Click(System::Object^ sender, System::EventArgs^ 
 			wynik = pierwsza / druga;	///dzielenie
 		}
 		break;
+	case 'p':
+		//procentowanie
+		wynik = (pierwsza / 100)* druga;
+		break;
+	case 'b':
+		//brutto
+		wynik = pierwsza * (1 + (druga / 100));
+		break;
+	case 'n':
+		//netto
+		wynik = pierwsza / (1 + (druga / 100));
+		break;
+	case 'm':
+		//marza
+		//cena sprzedazy - cena zakupu / cena sprzedazy
+		wynik = ((druga - pierwsza) / druga) * 100;
+	case 'x':
+		//narzut
+		//cena sprzedazy - cena zakupu / cena zakupu
+		wynik = ((druga - pierwsza) / pierwsza) * 100;
+	case 't':
+		//testuj
+		//obliczanie gry
+		if (druga == testuj) {
+			this->txtOkno->Text = "Dobrze!";
+			this->pictureBox1->Image = imageList1->Images[2];
+		}
+		else {
+			this->txtOkno->Text = "Zle...!";
+			this->pictureBox1->Image = imageList1->Images[1];
+		}
 	default:
 		break;
 	}
-
-
+	status = true;
+	if (operacja != 't') {
 	this->txtOkno->Text = Convert::ToString(wynik);
+	}
 }
 private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ e) {
 	txtOkno->Text = "0";
 	pierwsza = 0;
 	druga = 0; 
 	status = false;
+}
+private: System::Void button15_Click(System::Object^ sender, System::EventArgs^ e) {
+	txtOkno->Text = "0";
+
+}
+private: System::Void button18_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	wynik = Math::Sqrt(pierwsza);
+	this->txtOkno->Text = Convert::ToString(wynik);
+	status = true;
+}
+private: System::Void button20_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	wynik = Math::Pow(pierwsza,2);
+	this->txtOkno->Text = Convert::ToString(wynik);
+	status = true;
+}
+private: System::Void button19_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	status = true; 
+	operacja = 'p';
+
+}
+private: System::Void button25_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	status = true;
+	operacja = 'b';
+}
+private: System::Void button24_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	status = true;
+	operacja = 'n';
+}
+private: System::Void button23_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	status = true;
+	operacja = 'm';
+}
+private: System::Void button22_Click(System::Object^ sender, System::EventArgs^ e) {
+	pierwsza = Convert::ToDouble(txtOkno->Text);
+	status = true;
+	operacja = 'x';
+}
+	private: void Losowanie(int Start, int Stop, String^ Znak) {
+		Random^ losuj = gcnew Random;
+		pierwsza = losuj->Next(Start, Stop);
+		if (Znak != "-") {
+			druga = losuj->Next(Start, Stop);
+		}
+		else {
+			druga = losuj->Next(Start, pierwsza);
+		}
+		this->txtOkno->Text = pierwsza + Znak + druga + " = ? ";
+		pictureBox1->Image = imageList1->Images[0];
+		status = true;
+		operacja = 't';
+	}
+private: System::Void button26_Click(System::Object^ sender, System::EventArgs^ e) {
+	Losowanie(1, 20, "+");
+	testuj = pierwsza + druga;
+}
+private: System::Void button27_Click(System::Object^ sender, System::EventArgs^ e) {
+	Losowanie(1, 20, "-");
+	testuj = pierwsza - druga;
+}
+private: System::Void button28_Click(System::Object^ sender, System::EventArgs^ e) {
+	Losowanie(1, 10, "*");
+	testuj = pierwsza * druga;
 }
 };
 }
